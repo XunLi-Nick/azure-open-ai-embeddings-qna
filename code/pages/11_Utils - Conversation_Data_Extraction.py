@@ -31,35 +31,35 @@ try:
 
     st.markdown("## Conversation data extraction")
 
-    conversation_prompt = """   User: Hi there, I’m off between August 25 and September 11. I saved up 4000 for a nice trip. If I flew out from San Francisco, what are your suggestions for where I can go?
-        Agent: For that budget you could travel to cities in the US, Mexico, Brazil, Italy or Japan. Any preferences?
-        User: Excellent, I’ve always wanted to see Japan. What kind of hotel can I expect?
-        Agent: Great, let me check what I have. First, can I just confirm with you that this is a trip for one adult?
-        User: Yes it is
-        Agent: Great, thank you, In that case I can offer you 15 days at HOTEL Sugoi, a 3 star hotel close to a Palace. You would be staying there between August 25th and September 7th. They offer free wifi and have an excellent guest rating of 8.49/10. The entire package costs 2024.25USD. Should I book this for you?
-        User: That sounds really good actually. Lets say I have a date I wanted to bring…would Japan be out of my price range then?
-        Agent: Yes, unfortunately the packages I have for two in Japan do not fit in your budget. However I can offer you a 13 day beach getaway at the 3 star Rose Sierra Hotel in Santo Domingo. Would something like that interest you?
-        User: How are the guest ratings for that place?
-        Agent: 7.06/10, so guests seem to be quite satisfied with the place.
-        User: TRUE. You know what, I’m not sure that I’m ready to ask her to travel with me yet anyway. Just book me for Sugoi
-        Agent:I can do that for you! 
-        User:Thanks!
-        Agent: Can I help you with some other booking today?
-        User:No, thanks!
+    conversation_prompt = """   用户：您好，我在8月25日到9月11日之间休息。为了这次愉快的旅行，我存了4000英镑。如果我从旧金山飞出去，你对我去哪里有什么建议？
+        代理商：如果有这个预算，你可以去美国、墨西哥、巴西、意大利或日本的城市旅行。有什么偏好吗？
+        用户：太好了，我一直想去日本看看。我能期待什么样的酒店？？
+        代理商：太好了，让我检查一下我有什么。首先，我可以和你确认一下，这是一个成年人的旅行吗？
+        用户：是的
+        代理商：太好了，谢谢。那样的话，我可以给你15天的住宿时间，这是一家靠近皇宫的三星级酒店。你将在8月25日至9月7日期间住在那里。他们提供免费无线网络，客人的评分为8.49/10。整个套餐价格为2024.25美元。我应该为您预订吗？
+        用户：这听起来真的很好。比方说我有一个约会我想带…那么日本会超出我的价格范围吗？
+        代理商：是的，很遗憾，我在日本的两个包裹不符合你们的预算。然而，我可以在圣多明各的三星级玫瑰塞拉酒店为您提供为期13天的海滩度假。你对这样的东西感兴趣吗？
+        用户：那个地方的客人评分如何？
+        代理商：7.06/10，所以客人似乎对这个地方很满意。
+        用户：真。你知道吗，我还不确定我是否准备好邀请她和我一起旅行。给Sugoi预定我就行了
+        代理商：我可以帮你做！
+        用户：谢谢！
+        代理商：我今天能帮你预订其他房间吗？
+        用户：不用了，谢谢！
 
 
-        Execute these tasks:
-        -	Summarize the conversation, key: summary
-        -      Customer budget none if not detected, key: budget
-        -      Departure city, key: departure
-        -      Destination city, key: destination
-        -      Selected country, key: country
-        -      Which hotel the customer choose?, key: hotel
-        -	Did the agent remind the customer about the evaluation survey? , key:evaluation true or false as bool
-        -	Did the customer mention a product competitor?, key: competitor true or false as bool
-        -	Did the customer ask for a discount?, key:discount true or false as bool
-        - Agent asked for additional customer needs. key: additional_requests
-        - Was the customer happy with the resolution? key: satisfied
+        执行以下任务：
+        -	总结对话，关键：总结
+        -      如果未检测到客户预算，则无，关键字：预算
+        -      出发城市，关键字：出发
+        -      目的地城市，关键字：目的地
+        -      所选国家/地区，关键字：国家/地区
+        -      客户选择哪家酒店？，关键字：酒店
+        -	代理商是否提醒客户评估调查, 关键字:评估调查 true or false as bool
+        -	客户是否提到了产品竞争对手？, key: 竞争对手 true or false as bool
+        -	客户要求折扣了吗？, 关键字:折扣 true or false as bool
+        - 代理商询问了其他客户需求. key: additional_requests
+        - 客户对解决方案满意吗? key: 满意
 
         Answer in JSON machine-readable format, using the keys from above.
         Format the ouput as JSON object called "results". Pretty print the JSON and make sure that is properly closed at the end."""
